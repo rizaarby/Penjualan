@@ -43,4 +43,13 @@ class Barang_model extends CI_Model{
     $this->db->update('barang', $data);
     }
 
+    public function cariDataBarang()
+    {
+        $keyword=$this->input->post('keyword', true);
+        $this->db->or_like('nama_barang', $keyword);
+        $this->db->or_like('harga', $keyword);
+        $this->db->or_like('stok', $keyword);
+        return $this->db->get('barang')->result_array();
+    }
+
 }

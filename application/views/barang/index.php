@@ -6,10 +6,28 @@
   </div>
   <?php endif ; ?>
 
+  <?php if (empty($barang)): ?>
+    <div class="alert alert-danger" role="alert">
+      Data Barang Tidak Ditemukan!!!
+    <?php endif; ?>
+
 <div class="row mt-2">
     <div class="colmd-5">
       <a href="<?= base_url(); ?>barang/tambah" class="btn btn-primary">Tambah Data Barang</a>
     </div>
+  </div>
+
+<div class="row mt3">
+  <div class="col md-6">
+  <form action=""method="post">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Cari Data Barang ..." name="keyword">
+    <button class="btn btn-primary" type="submit" >Cari</button>
+  </div>
+  </form>
+  </div>
+</div>
+
 <table class="table">
   <thead>
     <tr>
