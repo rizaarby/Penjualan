@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Barang_model extends CI_Model{
+class Barang_model extends CI_Model
+{
 
-
-    public function getAllBarang ()
+    public function getAllBarang()
     {
         return $this->db->get('barang')->result_array();
     }
@@ -16,8 +16,8 @@ class Barang_model extends CI_Model{
             'nama_barang' => $this->input->post('nama_barang', true),
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
-    );
-    $this->db->insert('barang', $data);
+        );
+        $this->db->insert('barang', $data);
     }
 
     public function hapusDataBarang($id)
@@ -28,28 +28,19 @@ class Barang_model extends CI_Model{
 
     public function getBarangById($id)
     {
-        return $this->db->get_where('barang', ['id_barang'=>$id])->row_array();
+        return $this->db->get_where('barang', ['id_barang' => $id])->row_array();
     }
 
-    public function ubahDataBarang($id)
+    public function ubahDataBarang()
     {
         $data = array(
             'id_barang' => $this->input->post('id_barang', true),
             'nama_barang' => $this->input->post('nama_barang', true),
             'harga' => $this->input->post('harga', true),
             'stok' => $this->input->post('stok', true),
-    );
-    $this->db->where('id_barang', $this->input->post('id_barang'));
-    $this->db->update('barang', $data);
-    }
+        );
 
-    public function cariDataBarang()
-    {
-        $keyword=$this->input->post('keyword', true);
-        $this->db->or_like('nama_barang', $keyword);
-        $this->db->or_like('harga', $keyword);
-        $this->db->or_like('stok', $keyword);
-        return $this->db->get('barang')->result_array();
+        $this->db->where('id_barang', $this->input->post('id_barang'));
+        $this->db->update('barang', $data);
     }
-
 }
