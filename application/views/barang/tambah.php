@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row mt-1">
-        <div class="colmd-3">
-            <?php if (validation_errors() ):?>
-            <div class="alert alert-danger" role="alert">
-                <?= validation_errors();?>
-                </div>
-            <?php endif; ?>
+    <div class="row-mt-3">
+        <div class="col-md-6">
+            <?php if (validation_errors()); ?>
+            <div class="alert alert-primary" role="alert">
+                <?php if (validation_errors()); ?>
+            </div>
+            <?php T_ENDIF ?>
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="id_barang" class="form-label">Kode Barang</label>
@@ -16,16 +16,15 @@
                     <input type="text" class="form-control" name="nama_barang" id="nama_barang">
                 </div>
                 <div class="mb-3">
-                    <label for="harga" class="form-label">Harga Barang</label>
+                    <label for="harga" class="form-label">Harga</label>
                     <input type="text" class="form-control" name="harga" id="harga">
                 </div>
                 <div class="mb-3">
                     <label for="stok" class="form-label">Stok</label>
                     <input type="text" class="form-control" name="stok" id="stok">
                 </div>
-                </div>
-                <button nama="tambah" type="submit" class="btn btn-primary">Tambah Data</button>
-        </action>
+                <button name="tambah" type="submit" class="btn btn-primary">Tambah Data</button>
+            </form>
         </div>
     </div>
 </div>
